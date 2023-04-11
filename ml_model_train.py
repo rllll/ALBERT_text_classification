@@ -6,7 +6,8 @@
 import numpy as np
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
-from sklearn.externals import joblib
+# from sklearn.externals import joblib
+import joblib
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 
