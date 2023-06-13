@@ -29,7 +29,7 @@ y_test = np.array([vec for vec in test_df['label']])
 print('x_train: ', x_train.shape)
 
 # Convert class vectors to binary class matrices.
-num_classes = 2
+num_classes = 3
 y_train = to_categorical(y_train, num_classes)
 y_test = to_categorical(y_test, num_classes)
 
@@ -50,6 +50,7 @@ history = model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_si
 model.save('event_type_classify.h5')
 print(model.evaluate(x_test, y_test))
 
+
 # 绘制loss和acc图像
 plt.subplot(2, 1, 1)
 epochs = len(history.history['loss'])
@@ -58,8 +59,8 @@ plt.plot(range(epochs), history.history['val_loss'], label='val_loss')
 plt.legend()
 
 plt.subplot(2, 1, 2)
-epochs = len(history.history['accuracy'])
-plt.plot(range(epochs), history.history['accuracy'], label='accuracy')
-plt.plot(range(epochs), history.history['val_accuracy'], label='val_accuracy')
+epochs = len(history.history['acc'])
+plt.plot(range(epochs), history.history['acc'], label='accuracy')
+plt.plot(range(epochs), history.history['val_acc'], label='val_accuracy')
 plt.legend()
 plt.savefig("loss_acc.png")
